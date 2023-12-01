@@ -3,7 +3,7 @@
 Advent of Code is created by [Eric Wastl](http://was.tl/). Visit the [Advent of Code website](https://adventofcode.com/) for more information and to participate in the challenge.
 ![Advent of Code](https://img.shields.io/badge/Advent%20of%20Code-2023-brightgreen)
 
-### Advent of Code is an annual coding challenge where participants solve one programming puzzle per day leading up to Christmas
+### Advent of Code is an annual coding challenge where participants solve two programming puzzles per day leading up to Christmas
 
 ## Structure
 
