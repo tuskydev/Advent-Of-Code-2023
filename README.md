@@ -1,5 +1,17 @@
-# DESCRIPTIVE-TITLE Solo Project 
-### A repo made to test Semantic-UI-React's NPM that has a popup modal that display's necessary info.
+# Advent of Code 2023 Solo Project 
+
+Advent of Code is created by [Eric Wastl](http://was.tl/). Visit the [Advent of Code website](https://adventofcode.com/) for more information and to participate in the challenge.
+![Advent of Code](https://img.shields.io/badge/Advent%20of%20Code-2023-brightgreen)
+
+### Advent of Code is an annual coding challenge where participants solve one programming puzzle per day leading up to Christmas
+
+## Structure
+
+- Each day's solution is organized in its own directory (`Day-01`, `Day-02`, etc.).
+- Solutions are implemented in Python.
+- Input data for each day is included.
+- Additional notes or explanations may be provided in each day's directory.
+
 
 ### Things learned:
 * Learned how to make functionality for className "active" in navs and tabs
@@ -15,14 +27,9 @@
 ### Image of the Pop-up-Bar's integrated and dynamic Carousel 
 ![image](https://user-images.githubusercontent.com/52723004/93537444-7d4e3f00-f919-11ea-94d4-43ab6a3205a9.png)
 
-## KEY NOTES: ONLYADDIFYOUNEEDDISCLAIMERS!!!
-* The first Carousel was made with Bootstrap NPM 
-* The second Carousel was made with Alice-Carousel NPM in a `Class` Component 
-* The third Carousel was made with Alice-Carousel NPM in a `Function` Component 
-
 ## Steps to recreate:
 
-### In console:
+### In terminal:
 `
 npm install semantic-ui-react semantic-ui-css
 `
@@ -31,23 +38,14 @@ npm install semantic-ui-react semantic-ui-css
 npm i react-alice-carousel
 `
 
-### Add these lines to the App.js file:
+### Add these lines to the main.py file:
 ```
-import {
-  Checkbox,
-  Sidebar,
-} from 'semantic-ui-react';
-import AliceCarousel from 'react-alice-carousel';
-
-import 'semantic-ui-css/semantic.min.css';
-import 'react-alice-carousel/lib/alice-carousel.css';
+import random
 ```
 
-### Choose any example code from the Docs here and adjust to the best fit.
-`
-https://react.semantic-ui.com/usage
-`
 
-`
-https://www.npmjs.com/package/react-alice-carousel
-`
+
+###### Happy coding, and may the bugs be ever in your favor.
+
+## Disclamers:
+* These solutions are my personal attempts at solving the puzzles. Feel free to provide feedback or suggest alternative solutions!
