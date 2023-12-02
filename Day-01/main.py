@@ -1,4 +1,5 @@
 ## --- Part One ---
+
 # handle = open("./Day-01./list.txt", "r")
 
 # total = int()
@@ -12,68 +13,63 @@
 #     if char.isdigit():
 #       twoDigits += char
 #       break
-#   print(line)
 
 #   total += int(twoDigits)
+# print(total)
 
 ## --- Part Two ---
-handle = open("./Day-01./list.txt", "r")
-stringToNums = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
-                "six": 6, "seven": 7, "eight": 8, "nine": 9}
-letterToIndex = []
 
-for index, line in enumerate(handle):
-  letterToIndex.append({})
-  currDict = letterToIndex[index]
+def splicer(word, list, matches=None, index=0):
+  """
+  Recursive function looking for matches in word with list
 
-  for num in stringToNums:
-    try:
-      numIndex = line.index(num)
-      currDict[num] = numIndex
-    except: continue
+  Parameters:
+  - word (str): a random str with numbers in word and integer format
+  - list (list): list of strings we want to match to
+
+  Returns:
+  list (list): a list of tuple pairs
+  """
+  # Base cases or when function is done
+  if matches is None:
+    matches = []
+  if len(word) < 3:
+    return matches
+
+  for num in list:
+    if word.startswith(num):
+      matches.append((num, index))
+
+  return splicer(word[1:], list, matches, index=index+1)
+
+f = open("./Day-01./list.txt", "r")
+dictOfNumStrings = {"one":"1", "two":"2", "three":"3", "four":"4", "five":"5",
+                    "six":"6", "seven":"7", "eight":"8", "nine":"9"}
+total = 0
+data = []
+
+for line in f:
+  first, second = 0, 0
+
+  results = splicer(line, dictOfNumStrings)
 
   for i, char in enumerate(line):
     if char.isdigit():
-      currDict[char] = i
-      break
-  for char in line[::-1]:
-    if char.isdigit():
-      ind = line.index(char)
-      currDict[char] = ind
-      break
+      results.append((char, i))
 
-total = 0
+  data.append(results)
 
-for currDict in letterToIndex:
-  """
-  minVal/maxVal (list) = two values, left: num - right: index
-  """
-  finalString = ""
-  minVal = []
-  maxVal = []
+for list in data:
+  min, max = [list[0][0], list[0][1]], [list[0][0], list[0][1]]
 
-  for key, value in currDict.items():
-    if not minVal:
-      minVal.append(key)
-      minVal.append(value)
-    if not maxVal:
-      maxVal.append(key)
-      maxVal.append(value)
-    if value <= minVal[1]:
-      minVal[0] = key
-      minVal[1] = value
-    if value >= maxVal[1]:
-      maxVal[0] = key
-      maxVal[1] = value
+  for pair in list:
+    if min[1] > pair[1]:
+      min = [pair[0], pair[1]]
+    if max[1] < pair[1]:
+      max = [pair[0], pair[1]]
 
-  # Convert any letter numbers to numbers
-  if minVal[0] in stringToNums:
-    minVal[0] = stringToNums[minVal[0]]
-  if maxVal[0] in stringToNums:
-    maxVal[0] = stringToNums[maxVal[0]]
-
-  finalString += str(minVal[0]) + str(maxVal[0])
-  print(finalString)
-  total += int(finalString)
+  convertString = [dictOfNumStrings.get(min[0], str(min[0])),
+                   dictOfNumStrings.get(max[0], str(max[0]))]
+  total += int(convertString[0] + convertString[1])
 
 print(total)
