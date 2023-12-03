@@ -1,6 +1,6 @@
 # --- Day 2: Part One: Cube Conundrum ---
 
-# f = open("list.txt", "r")
+# f = open("./Day-02/list.txt", "r")
 
 # def getMax(line):
 #   """
@@ -58,7 +58,7 @@
 
 # --- Day 2: Part Two: Cube Conundrum ---
 
-f = open("list.txt", "r")
+f = open("./Day-02/list.txt", "r")
 
 def getMax(line):
   """
